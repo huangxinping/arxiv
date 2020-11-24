@@ -169,7 +169,8 @@ class Papers(object):
         if response.ok:
             result = response.json()
             for item in result['data']:
-                self.executor.submit(Paper(item['id']).run())
+                Paper(item['id']).run()
+                #self.executor.submit(Paper(item['id']).run())
             self.page_count = result['meta']['pageCount']
 
 
