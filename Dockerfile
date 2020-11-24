@@ -18,7 +18,6 @@ RUN unzip /tmp/chromedriver.zip chromedriver -d /usr/local/bin/
 # set display port to avoid crash
 ENV DISPLAY=:99
 
-RUN pip install -r requirements.txt -i https://pypi.doubanio.com/simple/ --trusted-host pypi.doubanio.com && \
-    find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
+RUN pip install -r requirements.txt && find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
 
 CMD python arxiv.py
