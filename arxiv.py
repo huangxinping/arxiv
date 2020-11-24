@@ -22,6 +22,7 @@ class Paper(object):
         chrome_options.add_argument('--headless')
         chrome_options.add_argument(
             '--no-sandbox')  # required when running as root user. otherwise you would get no sandbox errors.
+        chrome_options.add_argument('--disable-dev-shm-usage')        
         self.driver = webdriver.Chrome(executable_path='/usr/local/bin/chromedriver', chrome_options=chrome_options)
         self.id = id
         self.db = pymongo.MongoClient("192.168.0.125", 31345).papers
